@@ -39,7 +39,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-a
+
 void MainWindow::dataAvailable()
 {
 
