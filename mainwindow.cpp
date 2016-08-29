@@ -39,7 +39,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+a
 void MainWindow::dataAvailable()
 {
 
@@ -169,7 +169,7 @@ void MainWindow::dataAvailable()
     {
         ui->txtConsole->append("0xF0 0x02 0x0D");
         ui->txtConsole->append("Sending reply FC info...Adv");
-        serialport->write(QByteArray::fromHex("F0 20 00 00 1d 28 36 09 1d 02 00 00 00 00 00 00 ff 36 02 01 5d 5c 00 73 00 00 00 00 00 4C 00 00 9C"));
+        serialport->write(QByteArray::fromHex("F0 20 88 13 1d 28 36 09 1d 02 00 00 00 00 00 00 ff 36 02 01 5d 5c 00 73 DC 00 00 00 00 4C 00 00 25")); //changed speed to 220 and rev to 5500
       //  serialport->write(QByteArray::fromHex("f0 28 00 00 6d 28 45 09 27 02 00 00 00 00 00 00 ff 36 02 01 5d 5c 00 7c 00 00 00 00 00 4c 00 00 00 00 00 00 00 00 00 00 22"));
         serialport->blockSignals(false);
 
