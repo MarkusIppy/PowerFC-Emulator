@@ -18,6 +18,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void fillPortsParameters();
+    void on_btnConnect_clicked();
 
 
 public:
@@ -30,5 +32,8 @@ public slots:
 
 void dataAvailable();
 
+private slots:
+void on_btnDisconnect_clicked();
+void on_btnconnect_clicked();
 };
 #endif // MAINWINDOW_H
