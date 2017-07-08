@@ -88,6 +88,7 @@ void MainWindow::dataAvailable()
     quint8 readwrite = receivedData[01];
     //serialport->blockSignals(true);
     qDebug() <<  "Serial signal rais" << requesttype << readwrite;
+    ui->txtConsole->append("Received  "+ receivedData.toHex().toUpper());
 
 
 
@@ -169,8 +170,8 @@ void MainWindow::dataAvailable()
     {
         ui->txtConsole->append("0xF5 0x02 0x08");
         ui->txtConsole->append("Sending reply FC info...Version number");
-        //serialport->write(QByteArray::fromHex("f5 07 34 2e 31 31 20 1f")); // Power FC Version number 5.08
-        serialport->write(QByteArray::fromHex("F507342E31302020"));
+        serialport->write(QByteArray::fromHex("f5 07 34 2e 31 31 20 1f")); // Power FC Version number 5.08
+        //serialport->write(QByteArray::fromHex("F507342E31302020"));
 
         serialport->blockSignals(false);
     }
@@ -1268,5 +1269,6 @@ void MainWindow::on_btnconnect_clicked()
     serialport->open(QIODevice::ReadWrite);
     qDebug() << "Serialport initialized"<< ui->comboBox->currentText();
     connect(this->serialport,SIGNAL(readyRead()),this,SLOT(dataAvailable()));
+    ui->txtConsole->append("Serialport open " + serialport->errorString());
 
 }
